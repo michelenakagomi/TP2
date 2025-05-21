@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1747861727 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\main.cpp
+	"EventManager.hpp"
+	"DataStorage.hpp"
+	"StopWordFilter.hpp"
+	"KeywordPrinter.hpp"
+
+1747861662 c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\eventmanager.hpp
+	<string>
+	<unordered_map>
+	<functional>
+	<vector>
+
+1747861645 c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\datastorage.hpp
+	"EventManager.hpp"
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<cctype>
+	<algorithm>
+	<iostream>
+
+1747861879 c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\stopwordfilter.hpp
+	"EventManager.hpp"
+	<unordered_set>
+	<string>
+	<iostream>
+
+1747861688 c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\keywordprinter.hpp
+	"EventManager.hpp"
+	<iostream>
+
