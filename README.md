@@ -58,9 +58,11 @@ Exemplo:
 - Deslocamento: "brown fox The quick"
 
 4) Ordenar
+
 Ordenar os deslocamentos alfabeticamente (baseados na palavra-chave deslocada).
 
 5) Saída
+
 Imprimir a lista ordenada no console ou em um novo arquivo de texto.
 
 
