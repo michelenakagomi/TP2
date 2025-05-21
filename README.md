@@ -33,19 +33,21 @@ Um arquivo de texto contendo uma frase por linha.
 📤 Saída:
 Uma lista alfabetizada de palavras-chave, com cada palavra apresentada em seu contexto (frase original circularmente deslocada para que a palavra-chave esteja no início).
 
+------------------------------------------------------------------------
+
 🧠 Etapas do algoritmo:
 
-1)Ler Entrada
+1) Ler Entrada
 Ler o arquivo de texto e armazenar os títulos em uma lista.
 
-2)Gerar Lista de Palavras-chave
+2) Gerar Lista de Palavras-chave
 Para cada título:
 
 - Dividir o título em palavras individuais.
 - Ignorar palavras comuns (stop words) como: "a", "o", "as", "os", "um", "uma", "é", "de", etc.
 - Armazenar cada palavra-chave junto com sua frase original.
 
-3)Deslocamento Circular
+3) Deslocamento Circular
 Para cada palavra-chave, gerar uma versão circularmente deslocada da frase original com a palavra no início.
 Exemplo:
 
@@ -53,10 +55,10 @@ Exemplo:
 - Palavra-chave: "brown"
 - Deslocamento: "brown fox The quick"
 
-4)Ordenar
+4) Ordenar
 Ordenar os deslocamentos alfabeticamente (baseados na palavra-chave deslocada).
 
-5)Saída
+5) Saída
 Imprimir a lista ordenada no console ou em um novo arquivo de texto.
 
 
