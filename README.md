@@ -7,14 +7,12 @@
 📌 Tarefas obrigatórias:
 
 (a) Implementar o algoritmo KWIC utilizando o estilo e linguagem de programação escolhidos.
-A especificação completa do algoritmo KWIC está no final do enunciado.
 
 (b) Implementar testes unitários e de integração para os principais componentes do KWIC.
-Os testes automatizados são um critério importante da avaliação.
 
 (c) Elaborar uma vídeo aula sobre o estilo de programação escolhido, explicando:
-Como o estilo influenciou o design da solução;
 
+- Como o estilo influenciou o design da solução;
 - Restrições que motivam o estilo;
 - Exemplo da implementação do KWIC no estilo;
 - Detalhes relevantes sobre como o estilo impactou o projeto;
@@ -52,6 +50,7 @@ Para cada título:
 3) Deslocamento Circular
 
 Para cada palavra-chave, gerar uma versão circularmente deslocada da frase original com a palavra no início.
+
 Exemplo:
 
 - Título: "The quick brown fox"
