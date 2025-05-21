@@ -38,9 +38,11 @@ Uma lista alfabetizada de palavras-chave, com cada palavra apresentada em seu co
 🧠 Etapas do algoritmo:
 
 1) Ler Entrada
+
 Ler o arquivo de texto e armazenar os títulos em uma lista.
 
 2) Gerar Lista de Palavras-chave
+
 Para cada título:
 
 - Dividir o título em palavras individuais.
@@ -48,6 +50,7 @@ Para cada título:
 - Armazenar cada palavra-chave junto com sua frase original.
 
 3) Deslocamento Circular
+
 Para cada palavra-chave, gerar uma versão circularmente deslocada da frase original com a palavra no início.
 Exemplo:
 
