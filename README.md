@@ -5,6 +5,7 @@
 -----------------------------------------------------------------
 
 📌 Tarefas obrigatórias:
+
 (a) Implementar o algoritmo KWIC utilizando o estilo e linguagem de programação escolhidos.
 A especificação completa do algoritmo KWIC está no final do enunciado.
 
@@ -14,13 +15,10 @@ Os testes automatizados são um critério importante da avaliação.
 (c) Elaborar uma vídeo aula sobre o estilo de programação escolhido, explicando:
 Como o estilo influenciou o design da solução;
 
-Restrições que motivam o estilo;
-
-Exemplo da implementação do KWIC no estilo;
-
-Detalhes relevantes sobre como o estilo impactou o projeto;
-
-Como o estilo é usado no design de sistemas ou historicamente.
+- Restrições que motivam o estilo;
+- Exemplo da implementação do KWIC no estilo;
+- Detalhes relevantes sobre como o estilo impactou o projeto;
+- Como o estilo é usado no design de sistemas ou historicamente.
 
 ------------------------------------------------------------------------
 
@@ -36,6 +34,7 @@ Um arquivo de texto contendo uma frase por linha.
 Uma lista alfabetizada de palavras-chave, com cada palavra apresentada em seu contexto (frase original circularmente deslocada para que a palavra-chave esteja no início).
 
 🧠 Etapas do algoritmo:
+
 1)Ler Entrada
 Ler o arquivo de texto e armazenar os títulos em uma lista.
 
