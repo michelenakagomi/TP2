@@ -69,7 +69,8 @@ Imprimir a lista ordenada no console ou em um novo arquivo de texto.
 ------------------------------------------------------------------------
 
 📦 Arquivos para entrega:
-- Arquivo .txt ou .md contendo:
+
+Arquivo .txt ou .md contendo:
 - Nome e matrícula dos membros do grupo;
 - Estilo e linguagem de programação escolhidos;
 - Link para o repositório no GitHub com o código do projeto;
