@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/Users/User/Documents/programas c++/TP2KWIC/build/cmake_install.cmake",
+		"D:/Users/User/Documents/programas c++/TP2KWIC/build/googletest/cmake_install.cmake",
+		"D:/Users/User/Documents/programas c++/TP2KWIC/build/googletest/googlemock/cmake_install.cmake",
+		"D:/Users/User/Documents/programas c++/TP2KWIC/build/googletest/googletest/cmake_install.cmake",
+		"D:/Users/User/Documents/programas c++/TP2KWIC/build/test/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

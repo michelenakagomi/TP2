@@ -1,0 +1,2 @@
+D:/msys64/ucrt64/bin/ar.exe qc libTP2KWIC.a CMakeFiles/TP2KWIC.dir/Example.cpp.obj
+D:/msys64/ucrt64/bin/ranlib.exe libTP2KWIC.a
