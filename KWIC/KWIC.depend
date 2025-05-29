@@ -1,0 +1,95 @@
+# depslib dependency file v1.0
+1748183037 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\projetotp2\geradorpalavraschave.cpp
+	"GeradorPalavrasChave.h"
+	"QuadroAvisos.h"
+	"StringUtils.h"
+	<sstream>
+	<iostream>
+
+1748182957 c:\users\carlo\onedrive\ambiente de trabalho\tp2\projetotp2\geradorpalavraschave.h
+	<string>
+	<vector>
+	"QuadroAvisos.h"
+
+1748182581 c:\users\carlo\onedrive\ambiente de trabalho\tp2\projetotp2\quadroavisos.h
+	<string>
+	<vector>
+	<iostream>
+
+1748181995 c:\users\carlo\onedrive\ambiente de trabalho\tp2\projetotp2\stringutils.h
+	<string>
+	<vector>
+	<algorithm>
+	<cctype>
+
+1748182912 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\projetotp2\leitorentrada.cpp
+	"LeitorEntrada.h"
+	"QuadroAvisos.h"
+	<fstream>
+	<iostream>
+
+1748182838 c:\users\carlo\onedrive\ambiente de trabalho\tp2\projetotp2\leitorentrada.h
+	<string>
+	"QuadroAvisos.h"
+
+1748182694 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\projetotp2\quadroavisos.cpp
+	"QuadroAvisos.h"
+
+1748182773 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\projetotp2\stringutils.cpp
+	"StringUtils.h"
+
+1748183150 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\projetotp2\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"QuadroAvisos.h"
+	"LeitorEntrada.h"
+	"GeradorPalavrasChave.h"
+
+1748183037 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\geradorpalavraschave.cpp
+	"GeradorPalavrasChave.h"
+	"QuadroAvisos.h"
+	"StringUtils.h"
+	<sstream>
+	<iostream>
+
+1748182957 c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\geradorpalavraschave.h
+	<string>
+	<vector>
+	"QuadroAvisos.h"
+
+1748182581 c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\quadroavisos.h
+	<string>
+	<vector>
+	<iostream>
+
+1748181995 c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\stringutils.h
+	<string>
+	<vector>
+	<algorithm>
+	<cctype>
+
+1748182912 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\leitorentrada.cpp
+	"LeitorEntrada.h"
+	"QuadroAvisos.h"
+	<fstream>
+	<iostream>
+
+1748182838 c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\leitorentrada.h
+	<string>
+	"QuadroAvisos.h"
+
+1748183150 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"QuadroAvisos.h"
+	"LeitorEntrada.h"
+	"GeradorPalavrasChave.h"
+
+1748182694 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\quadroavisos.cpp
+	"QuadroAvisos.h"
+
+1748182773 source:c:\users\carlo\onedrive\ambiente de trabalho\tp2\kwic\stringutils.cpp
+	"StringUtils.h"
+
