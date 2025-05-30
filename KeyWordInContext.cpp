@@ -78,7 +78,7 @@ private:
         std::ifstream file(path);
         std::string line;
         while (std::getline(file, line)) { // Lê linha por linha do arquivo
-            titulos.push_back(line); // Adiciona as linhas lidas (titulos) no vetor de titulos -> ["The quick brown fox", ...]
+            titulos.push_back(line); // Adiciona as linhas lidas (titulos) no vetor de titulos -> ["The quick brown fox"]
         }
     }
 
@@ -90,28 +90,13 @@ private:
             std::vector<std::string> palavras; // Vetor para armazenar as palavras separadas de cada titulo
             std::string palavra;
             while (iss >> palavra) { // Extrai as palavras de cada titulo
-                palavras.push_back(palavra); // Armazena no vetor de palavras separadas -> ["The", "quick", "brown", "fox", ...]
+                palavras.push_back(palavra); // Armazena no vetor de palavras separadas -> ["The", "quick", "brown", "fox"]
             }
             // Publica um evento para cada palavra separada
             event_manager.publish({"separatekeyword", palavras});
         }
         // Publica um evento para printar as palavras já ordenadas ("print final")
         event_manager.publish({"print", keyword_titles});
-        
-        
-        /*
-        for (const auto& palavra : keyword_titles) {
-            std::cout << palavra << " " << "//";
-        }
-        std::cout << std::endl << std::endl;
-
-
-        for (const auto& palavra : titulos) {
-            std::cout << palavra << " " << "//";
-        }
-        std::cout << std::endl;
-
-        */
     }
 
     // Método chamado pelo evento "store"
@@ -122,116 +107,120 @@ private:
     }
 };
 
+// Classe responsável por pegar uma lista de palavras de um título e gerar pares para fazer a filtragem de stopwords
 class KeyWordSeparator {
 public:
     KeyWordSeparator(EventManager& evt) : event_manager(evt) {
-        event_manager.subscribe("separatekeyword", [this](auto event) { createTuples(event); });
+        event_manager.subscribe("separatekeyword", [this](auto event) { createTuples(event); }); // Inscreve o método createTuples para ser chamado quando o evento "separatekeyword" for publicado
     }
 
 private:
     EventManager& event_manager;
 
+    // Método chamado pelo evento "separatekeyword"
+    // Recebe o vetor de palavras -> para cada palavra no vetor -> gera um par de uma palavra e o vetor original de palavras do titulo
     void createTuples(const std::pair<std::string, std::any>& event) {
-        auto palavras = std::any_cast<std::vector<std::string>>(event.second);
+        auto palavras = std::any_cast<std::vector<std::string>>(event.second); // Extrai o vetor de palavras
         for (const auto& palavra : palavras) {
-            event_manager.publish({"filter", std::make_pair(palavra, palavras)});
+            event_manager.publish({"filter", std::make_pair(palavra, palavras)}); // publica um evento "filter" de cada par gerado -> ("The",["The", "quick", "brown", "fox"])
         }
     }
 };
 
+// Classe responsável por filtrar as stopwords
 class StopWordFilter {
 public:
     StopWordFilter(EventManager& evt) : event_manager(evt) {
-        event_manager.subscribe("filter", [this](auto event) { filterStopWord(event); });
+        event_manager.subscribe("filter", [this](auto event) { filterStopWord(event); }); // Inscreve o método filterStopWord para ser chamado quando o evento "filter" for publicado
         stopwords = {"a","o","as","os","um","uma","é","de","do","da","dos","das",
                      "em","no","na","nos","nas","por","para","com","sem","sob","sobre",
-                     "the","is","and","of","to","in","it","that","on","sat",};
+                     "the","is","and","of","to","in","it","that","on","sat",}; // Lista de StopWords
     }
 
 private:
-    friend class IntegrationTest_FullPipeline_Test;
+    friend class IntegrationTest_FullPipeline_Test; // Classe para uso de testes unitários
 
     EventManager& event_manager;
-    std::vector<std::string> stopwords;
-    std::vector<std::pair<std::string, std::string>> keywordNcontextList;
+    std::vector<std::string> stopwords; // Vetor para armazenar as stopwords
+    std::vector<std::pair<std::string, std::string>> keywordNcontextList; // Vetor para armazenar a palavra e o titulo de onde ela vem
+    
+    // Método chamado pelo evento "filter" verifica se uma palavra é stopword
     void filterStopWord(const std::pair<std::string, std::any>& event) {
-        auto[palavra, lista] = std::any_cast<std::pair<std::string, std::vector<std::string>>>(event.second);
-        std::string palavra_lower = palavra;
-        std::transform(palavra_lower.begin(), palavra_lower.end(), palavra_lower.begin(), ::tolower);
-        if (std::find(stopwords.begin(), stopwords.end(), palavra_lower) == stopwords.end()) {
-            std::ostringstream oss;
+        auto[palavra, lista] = std::any_cast<std::pair<std::string, std::vector<std::string>>>(event.second); // Extrai a palavra chave e a lista de palavras do titulo
+        std::string palavra_lower = palavra; // Cria uma cópia da palavra para converter para minúscula
+        std::transform(palavra_lower.begin(), palavra_lower.end(), palavra_lower.begin(), ::tolower); // Converte a palavra para minúscula
+        if (std::find(stopwords.begin(), stopwords.end(), palavra_lower) == stopwords.end()) { // Condição para verificar se é uma stopword
+            std::ostringstream oss; // Cria um stream de string para reconstruir o titulo
             for (size_t i = 0; i < lista.size(); ++i) {
-                if (i > 0) oss << ' ';
-                oss << lista[i];
+                if (i > 0) oss << ' '; // Adiciona um espaço entre as palavras
+                oss << lista[i]; // Adiciona a palavra no stream
             }
-            std::string result = oss.str();
-            
-            
-            keywordNcontextList.push_back(std::make_pair(palavra, result));
-            /*
-            for (size_t i = 0; i < keywordNcontextList.size(); ++i) {
-                std::cout << "(" << keywordNcontextList[i].first << ", " << keywordNcontextList[i].second << ")";
-                if (i != keywordNcontextList.size() - 1) std::cout << ", ";
-            }
-            std::cout << std::endl;
-            */
+            std::string result = oss.str(); // Obtém o titulo original como string
+            keywordNcontextList.push_back(std::make_pair(palavra, result)); // Armazena o par no vetor -> (keyword, titulo original de onde ela vem)
+
+            // Ordena a lista de pares pela keyword
             std::sort(keywordNcontextList.begin(), keywordNcontextList.end(),
             [](const auto& a, const auto& b) {
                 return a.first < b.first;
             });
-            event_manager.publish({"circle", std::make_pair(palavra, lista)});
+            event_manager.publish({"circle", std::make_pair(palavra, lista)}); // Publica o evento "circle" com a keyword e a lista original de palavras do titulo -> ("quick", ["The", "quick", "brown", "fox"])
         }
     }
 };
 
+// Classe responsável por realizar o deslocamento circular das palavras de um título
 class CircleWords {
 public:
     CircleWords(EventManager& evt) : event_manager(evt) {
-        event_manager.subscribe("circle", [this](auto event) { circleWords(event); });
+        event_manager.subscribe("circle", [this](auto event) { circleWords(event); }); // Inscreve o método circleWords para ser chamado quando o evento "circle" for publicado
     }
 
 private:
     EventManager& event_manager;
 
+    // Método chamado pelo evento "circle" que gera a linha rotacionada
     void circleWords(const std::pair<std::string, std::any>& event) {
-        auto[keyword, lista] = std::any_cast<std::pair<std::string, std::vector<std::string>>>(event.second);
-        auto it = std::find(lista.begin(), lista.end(), keyword);
-        if (it != lista.end()) {
-            size_t index = std::distance(lista.begin(), it);
-            std::vector<std::string> rotated;
-            rotated.insert(rotated.end(), lista.begin() + index, lista.end());
-            rotated.insert(rotated.end(), lista.begin(), lista.begin() + index);
-            std::ostringstream oss;
+        auto[keyword, lista] = std::any_cast<std::pair<std::string, std::vector<std::string>>>(event.second); // Extrai a keyword e a lista de palavras
+        auto it = std::find(lista.begin(), lista.end(), keyword); // Encontra a primeira ocorrência da keyword na lista de palavras
+        if (it != lista.end()) { // Condição para verificar se a keyword foi encontrada na lista
+            size_t index = std::distance(lista.begin(), it); // Pega o índice da keyword
+            std::vector<std::string> rotated; // Vetor para armazenar a lista de palavras rotacionadas
+            rotated.insert(rotated.end(), lista.begin() + index, lista.end()); // Insere os elementos da lista original a partir da keyword até o final
+            rotated.insert(rotated.end(), lista.begin(), lista.begin() + index); // Insere os elementos da lista original do início até a keyword (mas não inclui a keyword)
+            std::ostringstream oss; // Cria a stream de strings para construir a linha rotacionada
             for (size_t i = 0; i < rotated.size(); ++i) {
-                oss << rotated[i];
+                oss << rotated[i]; // Adiciona a palavra na stream
                 if (i < rotated.size() - 1)
-                    oss << " ";
+                    oss << " "; // Adiciona um espaço
             }
-            event_manager.publish({"store", oss.str()});
+            event_manager.publish({"store", oss.str()}); // Publica o evento "store" com a string já formatada -> quick brown fox The
         }
     }
 };
 
+// Classe da aplicação principal do KWIC responsável por dar início ao fluxo
 class KeyWordInContextApplication {
 public:
     KeyWordInContextApplication(EventManager& evt) : event_manager(evt) {
-        event_manager.subscribe("run", [this](auto event) { run(event); });
-        event_manager.subscribe("print", [this](auto event) { stop(event); });
+        event_manager.subscribe("run", [this](auto event) { run(event); }); // Inscreve o método run para ser chamado quando o evento "run" for publicado
+        event_manager.subscribe("print", [this](auto event) { stop(event); }); // Inscreve o método stop para ser chamado quando o evento "print" for publicado
     }
 
 private:
-    friend class KeyWordInContextApplicationTests_RunAndPrintEvents_Test;
+    friend class KeyWordInContextApplicationTests_RunAndPrintEvents_Test; // Classe para teste
     EventManager& event_manager;
 
+    // Método chamado pelo evento "run" que inicia todo o processo do KWIC
     void run(const std::pair<std::string, std::any>& event) {
-        std::string path = std::any_cast<std::string>(event.second);
-        event_manager.publish({"load", path});
-        event_manager.publish({"start", {}});
+        std::string path = std::any_cast<std::string>(event.second); // Extrai o caminho do arquivo
+        event_manager.publish({"load", path}); // Publica o evento "load" para carregar os dados do arquivo
+        event_manager.publish({"start", {}}); // Publica o evento "start" para iniciar a separação de palavras e o resto do fluxo
     }
 
+    // Método chamado pelo evento "print" que imprime os resultados finais
     void stop(const std::pair<std::string, std::any>& event) {
         for (const auto& s : std::any_cast<std::vector<std::string>>(event.second)) {
-            std::cout << s << std::endl;
+            std::cout << s << std::endl; // Imprime cada linha do KWIC
         }
     }
 };
@@ -239,19 +228,23 @@ private:
 
 #ifndef UNIT_TEST
 int main(int argc, char* argv[]) {
-    SetConsoleOutputCP(CP_UTF8);
-    if (argc < 2) {
-        std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
+    SetConsoleOutputCP(CP_UTF8); // Configura o console do Windows para exibir os caracteres do UTF-8
+    if (argc < 2) { // Verifica se o número de argumentos da linha de comando é menor que 2 (nome do programa + arquivo de entrada)
+        std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl; // Exibe mensagem de uso correto
         return 1;
     }
 
-    EventManager em;
+    EventManager em; // Instância do EventManager
+    
+    // Instâncias de cada classe
     DataStorage ds(em);
     KeyWordSeparator ks(em);
     StopWordFilter sf(em);
     CircleWords cw(em);
     KeyWordInContextApplication app(em);
 
+    
+    // Publica o evento inicial "run" com o caminho do arquivo de entrada fornecido na linha de comando disparando todo o fluxo do KWIC
     em.publish({"run", std::string(argv[1])});
 
     return 0;
