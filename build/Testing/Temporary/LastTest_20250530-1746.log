@@ -1,0 +1,62 @@
+Start testing: May 30 16:22 Hora oficial do Brasil
+----------------------------------------------------------
+1/1 Testing: KWICTest
+1/1 Test: KWICTest
+Command: "D:/Users/User/Documents/VSCODE/programas c++/TP2/build/test/test_keyword.exe" "D:/Users/User/Documents/VSCODE/programas c++/TP2/input.txt"
+Directory: D:/Users/User/Documents/VSCODE/programas c++/TP2/build/test
+"KWICTest" start time: May 30 16:22 Hora oficial do Brasil
+Output:
+----------------------------------------------------------
+[==========] Running 9 tests from 6 test suites.
+[----------] Global test environment set-up.
+[----------] 2 tests from EventManagerTests
+[ RUN      ] EventManagerTests.Subscriptions
+[       OK ] EventManagerTests.Subscriptions (0 ms)
+[ RUN      ] EventManagerTests.Publish
+[       OK ] EventManagerTests.Publish (0 ms)
+[----------] 2 tests from EventManagerTests (0 ms total)
+
+[----------] 3 tests from DataStorageTests
+[ RUN      ] DataStorageTests.Load
+[       OK ] DataStorageTests.Load (6 ms)
+[ RUN      ] DataStorageTests.SeparateWords
+[       OK ] DataStorageTests.SeparateWords (0 ms)
+[ RUN      ] DataStorageTests.StoreKeywordTitle
+[       OK ] DataStorageTests.StoreKeywordTitle (0 ms)
+[----------] 3 tests from DataStorageTests (6 ms total)
+
+[----------] 1 test from KeyWordSeparatorTests
+[ RUN      ] KeyWordSeparatorTests.CreateTuple
+[       OK ] KeyWordSeparatorTests.CreateTuple (0 ms)
+[----------] 1 test from KeyWordSeparatorTests (0 ms total)
+
+[----------] 1 test from StopWordFilterTests
+[ RUN      ] StopWordFilterTests.FilterStopWord
+[       OK ] StopWordFilterTests.FilterStopWord (0 ms)
+[----------] 1 test from StopWordFilterTests (0 ms total)
+
+[----------] 1 test from CircleWordsTests
+[ RUN      ] CircleWordsTests.CircleWordsRotation
+[       OK ] CircleWordsTests.CircleWordsRotation (0 ms)
+[----------] 1 test from CircleWordsTests (0 ms total)
+
+[----------] 1 test from KeyWordInContextApplicationTests
+[ RUN      ] KeyWordInContextApplicationTests.RunAndPrintEvents
+linha1
+linha2
+linha3
+[       OK ] KeyWordInContextApplicationTests.RunAndPrintEvents (0 ms)
+[----------] 1 test from KeyWordInContextApplicationTests (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 9 tests from 6 test suites ran. (6 ms total)
+[  PASSED  ] 9 tests.
+<end of output>
+Test time =   0.22 sec
+----------------------------------------------------------
+Test Passed.
+"KWICTest" end time: May 30 16:22 Hora oficial do Brasil
+"KWICTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 30 16:22 Hora oficial do Brasil

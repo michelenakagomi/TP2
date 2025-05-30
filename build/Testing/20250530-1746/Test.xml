@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Win32-make"
+	BuildStamp="20250530-1746-Experimental"
+	Name="DESKTOP-6E8PQ1U"
+	Generator="ctest-4.0.2"
+	CompilerName="D:/msys64/ucrt64/bin/g++.exe"
+	CompilerVersion="14.2.0"
+	OSName="Windows"
+	Hostname="DESKTOP-6E8PQ1U"
+	OSRelease=" Professional"
+	OSVersion=" (Build 19045)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="5"
+	ModelName=""
+	ProcessorCacheSize="-1"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="19304"
+	TotalPhysicalMemory="8040"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="3600"
+	>
+	<Testing>
+		<StartDateTime>May 30 16:22 Hora oficial do Brasil</StartDateTime>
+		<StartTestTime>1748632931</StartTestTime>
+		<TestList>
+			<Test>./test/KWICTest</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>KWICTest</Name>
+			<Path>./test</Path>
+			<FullName>./test/KWICTest</FullName>
+			<FullCommandLine>"D:\Users\User\Documents\VSCODE\programas c++\TP2\build\test\test_keyword.exe" "D:/Users/User/Documents/VSCODE/programas c++/TP2/input.txt"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.217062</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>"D:\Users\User\Documents\VSCODE\programas c++\TP2\build\test\test_keyword.exe" "D:/Users/User/Documents/VSCODE/programas c++/TP2/input.txt"</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Environment">
+					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyNlD1vwjAQhvf8ihthIAJaIXXoVNoO9EuQqgPK4JCDWHLsyD5D+fd1EoQgsXBviRw/753vzTnrx3OksLRScrmDByA0ZGCrVQmzZgHGcveMo/XoHCm8CpUx0QIo91wrWaJ0MNLIVh14epn1ee+4dybZDnVSv47WsPz+gCbS/na8spnZaF4RV7KG2/hchGEYjKE0w1CBL5sJbopQ6hN2Tvr/DlsJkCImhtG18u5SOWfEVqS0U3qs6e7Gb4rl16f2IjCY9W3okSusmGaEP0rnJpD1ivW63Je4BS7weHCShJPAUIku7/X9pntt337bJ+3oNjpXpW7k1JTyTaUXiZ80OhMSW3W7CeLeZoJnujVHl2JnQlWrX7gg7yWrgTh2tzQpuAFXgkBtgQpskyhLlSU4MAMaS7XHHAyXGwTuLvvvBtF99AYuNJpCibxWT8bTe8iO9a8ijf4A2FBkmg==</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>May 30 16:22 Hora oficial do Brasil</EndDateTime>
+		<EndTestTime>1748632931</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

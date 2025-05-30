@@ -45,6 +45,8 @@ private:
      O valor é um vetor de funções que devem ser chamadas ao chamar o método publish
     */
     std::unordered_map<std::string, std::vector<std::function<void(const std::pair<std::string, std::any>&)>>> subscriptions;
+
+    friend class EventManagerTests_Subscriptions_Test; //Classe para uso em testes unitários
 };
 
 // Classe Responsável por carregar os títulos, iniciar o processamento e armazenar os resultados.
@@ -58,6 +60,12 @@ public:
     }
 
 private:
+    //Classes para uso em testes unitários
+    friend class DataStorageTests_Load_Test;
+    friend class DataStorageTests_SeparateWords_Test;
+    friend class DataStorageTests_StoreKeywordTitle_Test;
+
+
     EventManager& event_manager; 
     std::vector<std::string> titulos; // Vetor para armazenar os titulos lidos do arquivo input.txt
     std::vector<std::string> keyword_titles; // Vetor para armazenar as palavras chaves já rotacionadas
@@ -166,14 +174,15 @@ private:
     }
 };
 
-class WordFrequencyApplication {
+class KeyWordInContextApplication {
 public:
-    WordFrequencyApplication(EventManager& evt) : event_manager(evt) {
+    KeyWordInContextApplication(EventManager& evt) : event_manager(evt) {
         event_manager.subscribe("run", [this](auto event) { run(event); });
         event_manager.subscribe("print", [this](auto event) { stop(event); });
     }
 
 private:
+    friend class KeyWordInContextApplicationTests_RunAndPrintEvents_Test;
     EventManager& event_manager;
 
     void run(const std::pair<std::string, std::any>& event) {
@@ -189,6 +198,8 @@ private:
     }
 };
 
+
+#ifndef UNIT_TEST
 int main(int argc, char* argv[]) {
     SetConsoleOutputCP(CP_UTF8);
     if (argc < 2) {
@@ -201,9 +212,10 @@ int main(int argc, char* argv[]) {
     KeyWordSeparator ks(em);
     StopWordFilter sf(em);
     CircleWords cw(em);
-    WordFrequencyApplication app(em);
+    KeyWordInContextApplication app(em);
 
     em.publish({"run", std::string(argv[1])});
 
     return 0;
 }
+#endif

@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"D:/Users/User/Documents/VSCODE/programas c++/TP2/build/cmake_install.cmake",
+		"D:/Users/User/Documents/VSCODE/programas c++/TP2/build/external/googletest/cmake_install.cmake",
+		"D:/Users/User/Documents/VSCODE/programas c++/TP2/build/external/googletest/googlemock/cmake_install.cmake",
+		"D:/Users/User/Documents/VSCODE/programas c++/TP2/build/external/googletest/googletest/cmake_install.cmake",
+		"D:/Users/User/Documents/VSCODE/programas c++/TP2/build/test/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
