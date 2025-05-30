@@ -1,2 +1,2 @@
-KWICTest 25 0.32221
+KWICTest 27 0.331421
 ---
