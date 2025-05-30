@@ -1,10 +1,10 @@
-Start testing: May 30 20:35 Hora oficial do Brasil
+Start testing: May 30 20:43 Hora oficial do Brasil
 ----------------------------------------------------------
 1/1 Testing: KWICTest
 1/1 Test: KWICTest
 Command: "D:/Users/User/Documents/VSCODE/programas c++/TP2/build/test/test_keyword.exe" "D:/Users/User/Documents/VSCODE/programas c++/TP2/input.txt"
 Directory: D:/Users/User/Documents/VSCODE/programas c++/TP2/build/test
-"KWICTest" start time: May 30 20:35 Hora oficial do Brasil
+"KWICTest" start time: May 30 20:43 Hora oficial do Brasil
 Output:
 ----------------------------------------------------------
 [==========] Running 10 tests from 7 test suites.
@@ -18,12 +18,12 @@ Output:
 
 [----------] 3 tests from DataStorageTests
 [ RUN      ] DataStorageTests.Load
-[       OK ] DataStorageTests.Load (7 ms)
+[       OK ] DataStorageTests.Load (6 ms)
 [ RUN      ] DataStorageTests.SeparateWords
 [       OK ] DataStorageTests.SeparateWords (0 ms)
 [ RUN      ] DataStorageTests.StoreKeywordTitle
 [       OK ] DataStorageTests.StoreKeywordTitle (0 ms)
-[----------] 3 tests from DataStorageTests (7 ms total)
+[----------] 3 tests from DataStorageTests (6 ms total)
 
 [----------] 1 test from KeyWordSeparatorTests
 [ RUN      ] KeyWordSeparatorTests.CreateTuple
@@ -61,14 +61,14 @@ quick brown fox The
 [----------] 1 test from IntegrationTest (5 ms total)
 
 [----------] Global test environment tear-down
-[==========] 10 tests from 7 test suites ran. (13 ms total)
+[==========] 10 tests from 7 test suites ran. (12 ms total)
 [  PASSED  ] 10 tests.
 <end of output>
-Test time =   0.64 sec
+Test time =   0.23 sec
 ----------------------------------------------------------
 Test Passed.
-"KWICTest" end time: May 30 20:35 Hora oficial do Brasil
+"KWICTest" end time: May 30 20:43 Hora oficial do Brasil
 "KWICTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: May 30 20:35 Hora oficial do Brasil
+End testing: May 30 20:43 Hora oficial do Brasil

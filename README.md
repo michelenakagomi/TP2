@@ -80,14 +80,15 @@ Arquivo .txt ou .md contendo:
 ------------------------------------------------------------------------
 
 🔧 Como Executar este Programa:
+- No terminal, dentro do diretório TP2, faça o seguinte:
 - Compile o arquivo KeyWordInContext.cpp utilizando: g++ -std=c++17 -o KeyWordInContext KeyWordInContext.cpp
 - Execute o executável KeyWordInContext.exe digitando no terminal: ./KeyWordInContext.exe input.txt
-
+- Caso queira mudar o input, altere o arquivo input.txt neste diretório, inserindo Títulos em cada linha
 
 🔧 Como Rodar os testes unitários deste Programa:
 - No terminal, dentro do diretório TP2, digite os seguintes comandos:
-cmake -S . -B build
-cmake --build build
-./build/test/test_keyword
+- cmake -S . -B build
+- cmake --build build
+- ./build/test/test_keyword
 - O programa CMake é necessário para compilar os testes, caso não o tenha no computador, utilize o executável diretamente
 - Alternativamente, abra no vscode e instale a extensão CMake Tools no Visual Studio Code, e rode por meio do botão de testes imbutído
