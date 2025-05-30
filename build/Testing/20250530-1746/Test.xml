@@ -22,11 +22,11 @@
 	TotalVirtualMemory="19304"
 	TotalPhysicalMemory="8040"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="3600"
+	ProcessorClockFrequency="3599"
 	>
 	<Testing>
-		<StartDateTime>May 30 16:22 Hora oficial do Brasil</StartDateTime>
-		<StartTestTime>1748632931</StartTestTime>
+		<StartDateTime>May 30 18:24 Hora oficial do Brasil</StartDateTime>
+		<StartTestTime>1748640253</StartTestTime>
 		<TestList>
 			<Test>./test/KWICTest</Test>
 		</TestList>
@@ -37,7 +37,7 @@
 			<FullCommandLine>"D:\Users\User\Documents\VSCODE\programas c++\TP2\build\test\test_keyword.exe" "D:/Users/User/Documents/VSCODE/programas c++/TP2/input.txt"</FullCommandLine>
 			<Results>
 				<NamedMeasurement type="numeric/double" name="Execution Time">
-					<Value>0.217062</Value>
+					<Value>0.21628</Value>
 				</NamedMeasurement>
 				<NamedMeasurement type="numeric/double" name="Processors">
 					<Value>1</Value>
@@ -52,12 +52,12 @@
 					<Value>#CTEST_RESOURCE_GROUP_COUNT=</Value>
 				</NamedMeasurement>
 				<Measurement>
-					<Value encoding="base64" compression="gzip">eJyNlD1vwjAQhvf8ihthIAJaIXXoVNoO9EuQqgPK4JCDWHLsyD5D+fd1EoQgsXBviRw/753vzTnrx3OksLRScrmDByA0ZGCrVQmzZgHGcveMo/XoHCm8CpUx0QIo91wrWaJ0MNLIVh14epn1ee+4dybZDnVSv47WsPz+gCbS/na8spnZaF4RV7KG2/hchGEYjKE0w1CBL5sJbopQ6hN2Tvr/DlsJkCImhtG18u5SOWfEVqS0U3qs6e7Gb4rl16f2IjCY9W3okSusmGaEP0rnJpD1ivW63Je4BS7weHCShJPAUIku7/X9pntt337bJ+3oNjpXpW7k1JTyTaUXiZ80OhMSW3W7CeLeZoJnujVHl2JnQlWrX7gg7yWrgTh2tzQpuAFXgkBtgQpskyhLlSU4MAMaS7XHHAyXGwTuLvvvBtF99AYuNJpCibxWT8bTe8iO9a8ijf4A2FBkmg==</Value>
+					<Value encoding="base64" compression="gzip">eJyNlD1vwjAQhvf8ihthICK0Urt06tdAvwSpOqAMDjmIJceO7DOUf18nQQgSC/eWyPHz3vnenLN6OEUGCysll1tIpkBoyMBGqwru2gUYy90zjlaTU2TwKlTORAeg3HGtZIXSwUgTW/fg2XnW553j3plkW9Rp8zpaweL7A9rIhtvx0uZmrXlNXMkG7uJzHoZhNIXKjEMFvmwuuClDqY/YKen/O+wkQIqYGEeXyptz5RMjtiSlndJjTX83flOsuDy1F4HR/dCGAbnEmmlG+KN0YQJZL1ivy0OJW+AcD3snSTkJDJXo817fr7rX9e23PelGt9W5Kk0jx6aUbyq9SPyo0ZmQ2rrfTRD3NhM807U5Ohc7E+pG/cIFeS+ZA+LYXdK05AZcBQK1ASqxy6Es1ZZgzwxorNQOCzBcrhG4u+u/a0T3zVu41GhKJYpGnUxnt5Afmj9FFv0BKLxkVw==</Value>
 				</Measurement>
 			</Results>
 		</Test>
-		<EndDateTime>May 30 16:22 Hora oficial do Brasil</EndDateTime>
-		<EndTestTime>1748632931</EndTestTime>
+		<EndDateTime>May 30 18:24 Hora oficial do Brasil</EndDateTime>
+		<EndTestTime>1748640253</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

@@ -1,5 +1,7 @@
 #include <gtest/gtest.h>
 #include "../KeyWordInContext.cpp"  // ou KeyWordInContext.cpp se não houver header
+#include <set>
+#include <utility>
 
 TEST(EventManagerTests, Subscriptions) {
     EventManager em;
@@ -300,6 +302,54 @@ TEST(KeyWordInContextApplicationTests, RunAndPrintEvents) {
     // Aqui o teste verifica se o vetor capturado é igual ao que foi publicado
     EXPECT_EQ(printed_data, dados);
 }
+
+TEST(IntegrationTest, FullPipeline) {
+    const std::string temp_file = "temp_input.txt";
+    {
+        std::ofstream ofs(temp_file);
+        ofs << "The quick brown fox\n"
+                "A brown cat sat\n"
+                "The cat is brown\n";
+    }
+
+    EventManager em;
+    DataStorage ds(em);
+    KeyWordSeparator ks(em);
+    StopWordFilter sf(em);
+    CircleWords cw(em);
+    KeyWordInContextApplication app(em);
+
+    em.publish({"run", temp_file});
+
+    ASSERT_FALSE(ds.keyword_titles.empty());
+    EXPECT_EQ("brown The cat is",ds.keyword_titles[0]);
+    EXPECT_EQ("brown cat sat A",ds.keyword_titles[1]);
+    EXPECT_EQ("brown fox The quick",ds.keyword_titles[2]);
+    EXPECT_EQ("cat is brown The",ds.keyword_titles[3]);
+    EXPECT_EQ("cat sat A brown",ds.keyword_titles[4]);
+    EXPECT_EQ("fox The quick brown",ds.keyword_titles[5]);
+    EXPECT_EQ("quick brown fox The",ds.keyword_titles[6]);
+
+    ASSERT_FALSE(ds.titulos.empty());
+    EXPECT_EQ("The quick brown fox",ds.titulos[0]);
+    EXPECT_EQ("A brown cat sat",ds.titulos[1]);
+    EXPECT_EQ("The cat is brown",ds.titulos[2]);
+
+
+    EXPECT_EQ(std::make_pair(std::string("brown"), std::string("The quick brown fox")), sf.keywordNcontextList[0]);
+    EXPECT_EQ(std::make_pair(std::string("brown"), std::string("A brown cat sat")), sf.keywordNcontextList[1]);
+    EXPECT_EQ(std::make_pair(std::string("brown"), std::string("The cat is brown")), sf.keywordNcontextList[2]);
+    EXPECT_EQ(std::make_pair(std::string("cat"), std::string("A brown cat sat")), sf.keywordNcontextList[3]);
+    EXPECT_EQ(std::make_pair(std::string("cat"), std::string("The cat is brown")), sf.keywordNcontextList[4]);
+    EXPECT_EQ(std::make_pair(std::string("fox"), std::string("The quick brown fox")), sf.keywordNcontextList[5]);
+    EXPECT_EQ(std::make_pair(std::string("quick"), std::string("The quick brown fox")), sf.keywordNcontextList[6]);
+
+    std::remove(temp_file.c_str());
+}
+
+
+
+
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

@@ -1,13 +1,13 @@
-Start testing: May 30 16:22 Hora oficial do Brasil
+Start testing: May 30 18:24 Hora oficial do Brasil
 ----------------------------------------------------------
 1/1 Testing: KWICTest
 1/1 Test: KWICTest
 Command: "D:/Users/User/Documents/VSCODE/programas c++/TP2/build/test/test_keyword.exe" "D:/Users/User/Documents/VSCODE/programas c++/TP2/input.txt"
 Directory: D:/Users/User/Documents/VSCODE/programas c++/TP2/build/test
-"KWICTest" start time: May 30 16:22 Hora oficial do Brasil
+"KWICTest" start time: May 30 18:24 Hora oficial do Brasil
 Output:
 ----------------------------------------------------------
-[==========] Running 9 tests from 6 test suites.
+[==========] Running 10 tests from 7 test suites.
 [----------] Global test environment set-up.
 [----------] 2 tests from EventManagerTests
 [ RUN      ] EventManagerTests.Subscriptions
@@ -18,12 +18,12 @@ Output:
 
 [----------] 3 tests from DataStorageTests
 [ RUN      ] DataStorageTests.Load
-[       OK ] DataStorageTests.Load (6 ms)
+[       OK ] DataStorageTests.Load (8 ms)
 [ RUN      ] DataStorageTests.SeparateWords
 [       OK ] DataStorageTests.SeparateWords (0 ms)
 [ RUN      ] DataStorageTests.StoreKeywordTitle
 [       OK ] DataStorageTests.StoreKeywordTitle (0 ms)
-[----------] 3 tests from DataStorageTests (6 ms total)
+[----------] 3 tests from DataStorageTests (8 ms total)
 
 [----------] 1 test from KeyWordSeparatorTests
 [ RUN      ] KeyWordSeparatorTests.CreateTuple
@@ -48,15 +48,27 @@ linha3
 [       OK ] KeyWordInContextApplicationTests.RunAndPrintEvents (0 ms)
 [----------] 1 test from KeyWordInContextApplicationTests (0 ms total)
 
+[----------] 1 test from IntegrationTest
+[ RUN      ] IntegrationTest.FullPipeline
+brown The cat is
+brown cat sat A
+brown fox The quick
+cat is brown The
+cat sat A brown
+fox The quick brown
+quick brown fox The
+[       OK ] IntegrationTest.FullPipeline (5 ms)
+[----------] 1 test from IntegrationTest (5 ms total)
+
 [----------] Global test environment tear-down
-[==========] 9 tests from 6 test suites ran. (6 ms total)
-[  PASSED  ] 9 tests.
+[==========] 10 tests from 7 test suites ran. (13 ms total)
+[  PASSED  ] 10 tests.
 <end of output>
 Test time =   0.22 sec
 ----------------------------------------------------------
 Test Passed.
-"KWICTest" end time: May 30 16:22 Hora oficial do Brasil
+"KWICTest" end time: May 30 18:24 Hora oficial do Brasil
 "KWICTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: May 30 16:22 Hora oficial do Brasil
+End testing: May 30 18:24 Hora oficial do Brasil

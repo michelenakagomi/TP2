@@ -64,6 +64,7 @@ private:
     friend class DataStorageTests_Load_Test;
     friend class DataStorageTests_SeparateWords_Test;
     friend class DataStorageTests_StoreKeywordTitle_Test;
+    friend class IntegrationTest_FullPipeline_Test;
 
 
     EventManager& event_manager; 
@@ -96,6 +97,21 @@ private:
         }
         // Publica um evento para printar as palavras já ordenadas ("print final")
         event_manager.publish({"print", keyword_titles});
+        
+        
+        /*
+        for (const auto& palavra : keyword_titles) {
+            std::cout << palavra << " " << "//";
+        }
+        std::cout << std::endl << std::endl;
+
+
+        for (const auto& palavra : titulos) {
+            std::cout << palavra << " " << "//";
+        }
+        std::cout << std::endl;
+
+        */
     }
 
     // Método chamado pelo evento "store"
@@ -133,14 +149,36 @@ public:
     }
 
 private:
+    friend class IntegrationTest_FullPipeline_Test;
+
     EventManager& event_manager;
     std::vector<std::string> stopwords;
-
+    std::vector<std::pair<std::string, std::string>> keywordNcontextList;
     void filterStopWord(const std::pair<std::string, std::any>& event) {
         auto[palavra, lista] = std::any_cast<std::pair<std::string, std::vector<std::string>>>(event.second);
         std::string palavra_lower = palavra;
         std::transform(palavra_lower.begin(), palavra_lower.end(), palavra_lower.begin(), ::tolower);
         if (std::find(stopwords.begin(), stopwords.end(), palavra_lower) == stopwords.end()) {
+            std::ostringstream oss;
+            for (size_t i = 0; i < lista.size(); ++i) {
+                if (i > 0) oss << ' ';
+                oss << lista[i];
+            }
+            std::string result = oss.str();
+            
+            
+            keywordNcontextList.push_back(std::make_pair(palavra, result));
+            /*
+            for (size_t i = 0; i < keywordNcontextList.size(); ++i) {
+                std::cout << "(" << keywordNcontextList[i].first << ", " << keywordNcontextList[i].second << ")";
+                if (i != keywordNcontextList.size() - 1) std::cout << ", ";
+            }
+            std::cout << std::endl;
+            */
+            std::sort(keywordNcontextList.begin(), keywordNcontextList.end(),
+            [](const auto& a, const auto& b) {
+                return a.first < b.first;
+            });
             event_manager.publish({"circle", std::make_pair(palavra, lista)});
         }
     }
