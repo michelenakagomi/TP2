@@ -14,7 +14,7 @@
 https://github.com/michelenakagomi/TP2
 
 🎥 link para a vídeo aula:
-
+https://www.youtube.com/watch?v=ZzI7xnUAPGo
 
 
 🔧 Como Executar este Programa:
